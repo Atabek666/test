@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+  input, select, textarea {
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid gray;
+    margin-bottom: 10px;  /* Добавим отступ после каждого элемента формы */
+  }
+</style>
+
+<br><br><br>
+<div class="container">
+  <center>
+    <div class="form-container">
+      <form method="post" action="{% url 'appointment' %}">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="{{ form.name.id_for_label }}">Имя:</label><br>
+          {{ form.name }}
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="{{ form.phone.id_for_label }}">Телефон:</label><br>
+          {{ form.phone }}
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="{{ form.service.id_for_label }}">Услуга:</label><br>
+          {{ form.service }}
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="{{ form.time.id_for_label }}">Время:</label><br>
+          {{ form.time }}
+        </div>
+        <br>
+        <button type="submit" style="padding: 5px 10px; border: 1px solid black; border-radius: 5px; background-color: black; color: white;">Записаться</button>
+      </form>
+    </div>
+  </center>
+</div>
+<br><br><br><br>
+{% endblock %}
+

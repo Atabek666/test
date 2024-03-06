@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="border-1">
+    <div class="border-1-sec">
+        <div class="container">
+            <div class="b-1">
+                <div class="row" style="display: flex; align-items: center;">
+                    <div class="col">
+                        <h3>ДОБРО ПОЖАЛОВАТЬ В НАШ САЛОН</h3>
+                        <h1>Все виды процедур а также много другое</h1>
+                        <br>
+                        <button>ПОДРОБНЕЕ</button>
+                    </div>
+                    <div class="col">
+                        <center>
+                            <img style="width: 400px; object-fit: cover;" src="https://cc-prod.scene7.com/is/image/CCProdAuthor/Fashion-illustration_P3a_690x708?$pjpeg$&jpegSize=200&wid=690" alt="">
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="border-2">
+    <div class="container"> 
+        <div class="border-2-sec">
+            <br><br><br>
+            <div class="row row-cols-lg-4 row-cols-md-2 row-cols-1 g-5">
+                {% for post in posts %}
+                <div class="col">
+                    <center>
+                        <div class="card">
+                            <div class="card-title">{{ post.title }}</div>
+                            <div class="card-subtitle">{{ post.description }}</div>
+                            <hr class="card-divider">
+                            <div class="card-footer">
+                                <div class="card-price"><span>KZT</span> {{ post.price }}</div>
+                                <a href="{% url 'appointment' %}" class="btn btn-dark"><i class="fa-solid fa-pen"></i></a>
+                            </div>
+                        </div>
+                    </center>
+                </div>
+                {% endfor %}
+            </div>
+            <br><br><br>
+        </div>
+    </div>
+</div>
+
+<div class="border-1">
+    <br><br><br>
+    <div class="border-1-sec">
+        <div class="container">
+            <br><br><br>
+            <p class="p-b-1-2">
+                <strong>"Beauty & Mania"</strong> — салон красоты в центре города, где роскошь в деталях. Профессиональные стилисты, авторские стрижки, индивидуальные оттенки. Зона ухода за кожей, расслабляющие процедуры. Маникюр и педикюр — искусство в уходе. Мечты о идеальном образе становятся реальностью в "Beauty Mania".
+            </p>
+            <br><br><br>
+        </div>
+    </div>
+</div>
+
+{{ appointment }}
+{% endblock %}

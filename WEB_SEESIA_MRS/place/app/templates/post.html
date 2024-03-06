@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+  input, select, textarea {
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid gray;
+    margin-bottom: 10px;  /* Добавим отступ после каждого элемента формы */
+  }
+</style>
+
+<br><br><br>
+<div class="container">
+  <center>
+    <div class="form-container">
+      <form method="post" action="{% url 'add_post' %}">
+        {% csrf_token %}
+        
+        <label for="{{ form.title.id_for_label }}">Title:</label><br>
+        {{ form.title }}<br>
+  
+        <label for="{{ form.description.id_for_label }}">Description:</label><br>
+        {{ form.description }}<br>
+  
+        <label for="{{ form.price.id_for_label }}">Price:</label><br>
+        {{ form.price }}<br>
+  
+        <label for="{{ form.address.id_for_label }}">Address:</label><br>
+        {{ form.address }}<br>
+  
+        <button type="submit" style="padding: 5px 10px; border: 1px solid black; border-radius: 5px; background-color: black; color: white;">Записаться</button>
+      </form>
+    </div>
+  </center>
+</div>
+<br><br><br><br>
+{% endblock %}
